@@ -15,9 +15,26 @@ use pocketmine\command\CommandSender;
 use NhanAZ\QueryServer\libs\libpmquery\PMQuery;
 use NhanAZ\QueryServer\libs\libpmquery\PmQueryException;
 
+/**
+ * Class Main
+ * @package NhanAZ\QueryServer
+ */
 class Main extends PluginBase implements Listener
 {
 
+	/**
+	 * @var array $players
+	 */
+	public array $players = [];
+
+	/**
+	 * @param CommandSender $sender
+	 * @param Command $command
+	 * @param string $label
+	 * @param array $args
+	 *
+	 * @return bool
+	 */
 	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool
 	{
 		if ($cmd->getName() == "query") {
