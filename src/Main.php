@@ -16,7 +16,7 @@ use NhanAZ\QueryServer\libs\libpmquery\PmQueryException;
 class Main extends PluginBase implements Listener
 {
 
-	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool
+	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool
 	{
 		if ($cmd->getName() == "query") {
 			if (!isset($args[0])) {
@@ -33,66 +33,66 @@ class Main extends PluginBase implements Listener
 					return true;
 				}
 				if ($status->online == true) {
-					$sender->sendMessage("§e>§f Domain:§a " . str_replace(":", "§f:§a",$args[0]));
+					$sender->sendMessage("§e>§f Domain:§a " . str_replace(":", "§f:§a", $args[0]));
 					try {
 						$sender->sendMessage("§e>§f IP/Port:§a " . $status->ip . "§f:§a" . $status->port);
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f IP/Port:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f Ping:§a " . ($status->debug->ping ? "true" : "§cfalse"));
+						$sender->sendMessage("§e>§f Ping:§a " . ($status->debug->ping ? "true" : "§cfalse"));
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Ping:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f Query:§a " . ($status->debug->query ? "true" : "§cfalse"));
+						$sender->sendMessage("§e>§f Query:§a " . ($status->debug->query ? "true" : "§cfalse"));
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Query:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f SRV:§a " . ($status->debug->srv ? "true" : "§cfalse"));
+						$sender->sendMessage("§e>§f SRV:§a " . ($status->debug->srv ? "true" : "§cfalse"));
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f SRV:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f QueryMisMatch:§a " . ($status->debug->querymismatch ? "true" : "§cfalse"));
+						$sender->sendMessage("§e>§f QueryMisMatch:§a " . ($status->debug->querymismatch ? "true" : "§cfalse"));
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f QueryMisMatch:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f IPInSRV:§a " . ($status->debug->ipinsrv ? "true" : "§cfalse"));
+						$sender->sendMessage("§e>§f IPInSRV:§a " . ($status->debug->ipinsrv ? "true" : "§cfalse"));
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f IPInSRV:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f CNameInSRV:§a " . ($status->debug->cnameinsrv ? "true" : "§cfalse"));
+						$sender->sendMessage("§e>§f CNameInSRV:§a " . ($status->debug->cnameinsrv ? "true" : "§cfalse"));
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f CNameInSRV:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f AnimatedMotd:§a " . ($status->debug->animatedmotd ? "true" : "§cfalse"));
+						$sender->sendMessage("§e>§f AnimatedMotd:§a " . ($status->debug->animatedmotd ? "true" : "§cfalse"));
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f AnimatedMotd:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f CacheTime:§a " . $status->debug->cachetime);
+						$sender->sendMessage("§e>§f CacheTime:§a " . $status->debug->cachetime);
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f CacheTime:§c Error or has blocked queries!");
 					}
 					try {
 						foreach ($status->motd->clean as $clean) {
-							$sender->sendMessage("§e>§f Motd:§r ". $clean);
+							$sender->sendMessage("§e>§f Motd:§r " . $clean);
 						}
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Motd:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f Online/Max:§a " . $status->players->online . "§f/§a" . $status->players->max);
+						$sender->sendMessage("§e>§f Online/Max:§a " . $status->players->online . "§f/§a" . $status->players->max);
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Online/Max:§c Error or has blocked queries!");
 					}
 					try {
-						$list = "§e>§f Players (".count($players->list)."): §a";
+						$list = "§e>§f Players (" . count($players->list) . "): §a";
 						foreach ($players->list as $lists) {
 							$list .=  $lists . "§f,§a ";
 						}
@@ -101,7 +101,7 @@ class Main extends PluginBase implements Listener
 						$sender->sendMessage("§e>§f Players:§c Error or has blocked queries!");
 					}
 					try {
-						$uuid = "§e>§f UUIDS (".count($players->uuid)."): §a";
+						$uuid = "§e>§f UUIDS (" . count($players->uuid) . "): §a";
 						foreach ($players->uuid as $uuids) {
 							$uuid .=  $uuids . "§f,§a ";
 						}
@@ -110,37 +110,37 @@ class Main extends PluginBase implements Listener
 						$sender->sendMessage("§e>§f UUIDS:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f Version:§a " . (($status->version == null) ? "§cNull!" : $status->version));
+						$sender->sendMessage("§e>§f Version:§a " . (($status->version == null) ? "§cNull!" : $status->version));
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Version:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f protocol:§a " . $status->protocol);
+						$sender->sendMessage("§e>§f protocol:§a " . $status->protocol);
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Protocol:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f HostName:§a " . $status->hostname);
+						$sender->sendMessage("§e>§f HostName:§a " . $status->hostname);
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f HostName:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f Icon:§a " . $status->icon);
+						$sender->sendMessage("§e>§f Icon:§a " . $status->icon);
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Icon:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f SoftWare:§a " . $status->software);
+						$sender->sendMessage("§e>§f SoftWare:§a " . $status->software);
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f SoftWare:§c Error or has blocked queries!");
 					}
 					try {
-					$sender->sendMessage("§e>§f Map:§a " . $status->map);
+						$sender->sendMessage("§e>§f Map:§a " . $status->map);
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Map:§c Error or has blocked queries!");
 					}
 					try {
-						$plugin = "§e>§f Plugins (".count($status->plugins->raw)."): §a";
+						$plugin = "§e>§f Plugins (" . count($status->plugins->raw) . "): §a";
 						foreach ($status->plugins->raw as $raw) {
 							$plugin .= str_replace(" ", " v", $raw) . "§f,§a ";
 						}
@@ -149,7 +149,7 @@ class Main extends PluginBase implements Listener
 						$sender->sendMessage("§e>§f Plugins:§c Error or has blocked queries!");
 					}
 					try {
-						$mod = "§e>§f Mods (".count($status->mods->raw)."): §a";
+						$mod = "§e>§f Mods (" . count($status->mods->raw) . "): §a";
 						foreach ($status->mods->raw as $raw) {
 							$mod .= $raw . "§f,§a ";
 						}
@@ -158,7 +158,7 @@ class Main extends PluginBase implements Listener
 						$sender->sendMessage("§e>§f Mods:§c Error or has blocked queries!");
 					}
 					try {
-						$info = "§e>§f Info (".count($status->info->clean)."): §a";
+						$info = "§e>§f Info (" . count($status->info->clean) . "): §a";
 						foreach ($status->info->clean as $clean) {
 							$info .= $clean . "§f,§a ";
 						}
@@ -166,7 +166,7 @@ class Main extends PluginBase implements Listener
 					} catch (\Exception $e) {
 						$sender->sendMessage("§e>§f Info:§c Error or has blocked queries!");
 					}
-					if(strrchr($args[0], ":") == true) {
+					if (strrchr($args[0], ":") == true) {
 						$sender->sendMessage("§e>§f Below is the fallback query method:");
 						try {
 							$IP_Or_Domain_And_Port = explode(":", $args[0]);
@@ -177,7 +177,7 @@ class Main extends PluginBase implements Listener
 							$sender->sendMessage("§e>§f HostName:§r " . (($query["HostName"] == null) ? "§cNull!" : $query["HostName"]));
 							$sender->sendMessage("§e>§f Protocol:§a " . (($query["Protocol"] == null) ? "§cNull!" : $query["Protocol"]));
 							$sender->sendMessage("§e>§f Version:§a " . (($query["Version"] == null) ? "§cNull!" : $query["Version"]));
-							$sender->sendMessage("§e>§f Players:§a " .(($query["Players"] == null) ? "§cNull!" : $query["Players"]));
+							$sender->sendMessage("§e>§f Players:§a " . (($query["Players"] == null) ? "§cNull!" : $query["Players"]));
 							$sender->sendMessage("§e>§f MaxPlayers:§a " . (($query["MaxPlayers"] == null) ? "§cNull!" : $query["MaxPlayers"]));
 							$sender->sendMessage("§e>§f ServerId:§a " . (($query["ServerId"] == null) ? "§cNull!" : $query["ServerId"]));
 							$sender->sendMessage("§e>§f Map:§a " . (($query["Map"] == null) ? "§cNull!" : $query["Map"]));
@@ -186,7 +186,7 @@ class Main extends PluginBase implements Listener
 							$sender->sendMessage("§e>§f IPv4Port:§a " . (($query["IPv4Port"] == null) ? "§cNull!" : $query["IPv4Port"]));
 							$sender->sendMessage("§e>§f IPv6Port:§a " . (($query["IPv6Port"] == null) ? "§cNull!" : $query["IPv6Port"]));
 							$sender->sendMessage("§e>§f Extra:§a " . (($query["Extra"] == null) ? "§cNull!" : $query["Extra"]));
-						} catch(PmQueryException $e) {
+						} catch (PmQueryException $e) {
 							$sender->sendMessage("§e>§c The server is offline or has blocked queries!");
 							$sender->sendMessage("§e>§f Possible error:§c Your IP does not open the port or the device does not match!");
 						}
@@ -198,7 +198,7 @@ class Main extends PluginBase implements Listener
 			} else {
 				$sender->sendMessage("§e>§c Please use the command on the console!");
 			}
-		return true;
+			return true;
 		}
 		if ($cmd->getName() == "querys") {
 			if ($sender instanceof Player) {
@@ -223,7 +223,7 @@ class Main extends PluginBase implements Listener
 				$sender->sendMessage("§e>§f HostName:§r " . (($query["HostName"] == null) ? "§cNull!" : $query["HostName"]));
 				$sender->sendMessage("§e>§f Protocol:§a " . (($query["Protocol"] == null) ? "§cNull!" : $query["Protocol"]));
 				$sender->sendMessage("§e>§f Version:§a " . (($query["Version"] == null) ? "§cNull!" : $query["Version"]));
-				$sender->sendMessage("§e>§f Players:§a " .(($query["Players"] == null) ? "§cNull!" : $query["Players"]));
+				$sender->sendMessage("§e>§f Players:§a " . (($query["Players"] == null) ? "§cNull!" : $query["Players"]));
 				$sender->sendMessage("§e>§f MaxPlayers:§a " . (($query["MaxPlayers"] == null) ? "§cNull!" : $query["MaxPlayers"]));
 				$sender->sendMessage("§e>§f ServerId:§a " . (($query["ServerId"] == null) ? "§cNull!" : $query["ServerId"]));
 				$sender->sendMessage("§e>§f Map:§a " . (($query["Map"] == null) ? "§cNull!" : $query["Map"]));
@@ -232,7 +232,7 @@ class Main extends PluginBase implements Listener
 				$sender->sendMessage("§e>§f IPv4Port:§a " . (($query["IPv4Port"] == null) ? "§cNull!" : $query["IPv4Port"]));
 				$sender->sendMessage("§e>§f IPv6Port:§a " . (($query["IPv6Port"] == null) ? "§cNull!" : $query["IPv6Port"]));
 				$sender->sendMessage("§e>§f Extra:§a " . (($query["Extra"] == null) ? "§cNull!" : $query["Extra"]));
-			} catch(PmQueryException $e) {
+			} catch (PmQueryException $e) {
 				$sender->sendMessage("§e>§c The server is offline or has blocked queries!");
 				$sender->sendMessage("§e>§f Possible error:§c Your IP does not open the port or the device does not match!");
 			}
