@@ -3,6 +3,7 @@ name: QueryServer
 version: 0.0.1
 api: 4.0.0
 main: NhanAZ\QueryServer\Main
+src-namespace-prefix: NhanAZ\QueryServer
 website: https://github.com/NhanAZ
 description: Allow querying some other servers information
 commands:
