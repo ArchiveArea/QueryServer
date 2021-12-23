@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NhanAZ\QueryServer;
 
+use pocketmine\player\Player;
+
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 
