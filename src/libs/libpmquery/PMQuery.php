@@ -42,6 +42,7 @@ class PMQuery {
 
 		fclose($socket);
 
+		/** @phpstan-ignore-next-line */
 		if(empty($data) or $data === false) {
 			throw new PmQueryException("Server failed to respond", E_WARNING);
 		}
