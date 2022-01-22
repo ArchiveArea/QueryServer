@@ -17,6 +17,22 @@ class Main extends PluginBase implements Listener
 
 	public array $players = [];
 
+	public function qrs($sender, $query) {
+		$sender->sendMessage("§e>§f GameName:§a " . (($query["GameName"] == null) ? "§cNull!" : $query["GameName"]));
+		$sender->sendMessage("§e>§f HostName:§r " . (($query["HostName"] == null) ? "§cNull!" : $query["HostName"]));
+		$sender->sendMessage("§e>§f Protocol:§a " . (($query["Protocol"] == null) ? "§cNull!" : $query["Protocol"]));
+		$sender->sendMessage("§e>§f Version:§a " . (($query["Version"] == null) ? "§cNull!" : $query["Version"]));
+		$sender->sendMessage("§e>§f Players:§a " . (($query["Players"] == null) ? "§cNull!" : $query["Players"]));
+		$sender->sendMessage("§e>§f MaxPlayers:§a " . (($query["MaxPlayers"] == null) ? "§cNull!" : $query["MaxPlayers"]));
+		$sender->sendMessage("§e>§f ServerId:§a " . (($query["ServerId"] == null) ? "§cNull!" : $query["ServerId"]));
+		$sender->sendMessage("§e>§f Map:§a " . (($query["Map"] == null) ? "§cNull!" : $query["Map"]));
+		$sender->sendMessage("§e>§f GameMode:§a " . (($query["GameMode"] == null) ? "§cNull!" : $query["GameMode"]));
+		$sender->sendMessage("§e>§f NintendoLimited:§a " . (($query["NintendoLimited"] == null) ? "§cNull!" : $query["NintendoLimited"]));
+		$sender->sendMessage("§e>§f IPv4Port:§a " . (($query["IPv4Port"] == null) ? "§cNull!" : $query["IPv4Port"]));
+		$sender->sendMessage("§e>§f IPv6Port:§a " . (($query["IPv6Port"] == null) ? "§cNull!" : $query["IPv6Port"]));
+		$sender->sendMessage("§e>§f Extra:§a " . (($query["Extra"] == null) ? "§cNull!" : $query["Extra"]));
+	}
+
 	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool
 	{
 		if ($cmd->getName() == "query") {
@@ -174,19 +190,7 @@ class Main extends PluginBase implements Listener
 							$IP_Or_Domain = $IP_Or_Domain_And_Port[0];
 							$Port = $IP_Or_Domain_And_Port[1];
 							$query = PMQuery::query($IP_Or_Domain, (int)$Port);
-							$sender->sendMessage("§e>§f GameName:§a " . (($query["GameName"] == null) ? "§cNull!" : $query["GameName"]));
-							$sender->sendMessage("§e>§f HostName:§r " . (($query["HostName"] == null) ? "§cNull!" : $query["HostName"]));
-							$sender->sendMessage("§e>§f Protocol:§a " . (($query["Protocol"] == null) ? "§cNull!" : $query["Protocol"]));
-							$sender->sendMessage("§e>§f Version:§a " . (($query["Version"] == null) ? "§cNull!" : $query["Version"]));
-							$sender->sendMessage("§e>§f Players:§a " . (($query["Players"] == null) ? "§cNull!" : $query["Players"]));
-							$sender->sendMessage("§e>§f MaxPlayers:§a " . (($query["MaxPlayers"] == null) ? "§cNull!" : $query["MaxPlayers"]));
-							$sender->sendMessage("§e>§f ServerId:§a " . (($query["ServerId"] == null) ? "§cNull!" : $query["ServerId"]));
-							$sender->sendMessage("§e>§f Map:§a " . (($query["Map"] == null) ? "§cNull!" : $query["Map"]));
-							$sender->sendMessage("§e>§f GameMode:§a " . (($query["GameMode"] == null) ? "§cNull!" : $query["GameMode"]));
-							$sender->sendMessage("§e>§f NintendoLimited:§a " . (($query["NintendoLimited"] == null) ? "§cNull!" : $query["NintendoLimited"]));
-							$sender->sendMessage("§e>§f IPv4Port:§a " . (($query["IPv4Port"] == null) ? "§cNull!" : $query["IPv4Port"]));
-							$sender->sendMessage("§e>§f IPv6Port:§a " . (($query["IPv6Port"] == null) ? "§cNull!" : $query["IPv6Port"]));
-							$sender->sendMessage("§e>§f Extra:§a " . (($query["Extra"] == null) ? "§cNull!" : $query["Extra"]));
+							$this->qrs($sender, $query);
 						} catch (PmQueryException $e) {
 							$sender->sendMessage("§e>§c The server is offline or has blocked queries!");
 							$sender->sendMessage("§e>§f Possible error:§c Your IP does not open the port or the device does not match!");
@@ -220,19 +224,7 @@ class Main extends PluginBase implements Listener
 			}
 			try {
 				$query = PMQuery::query($args[0], (int)$args[1]);
-				$sender->sendMessage("§e>§f GameName:§a " . (($query["GameName"] == null) ? "§cNull!" : $query["GameName"]));
-				$sender->sendMessage("§e>§f HostName:§r " . (($query["HostName"] == null) ? "§cNull!" : $query["HostName"]));
-				$sender->sendMessage("§e>§f Protocol:§a " . (($query["Protocol"] == null) ? "§cNull!" : $query["Protocol"]));
-				$sender->sendMessage("§e>§f Version:§a " . (($query["Version"] == null) ? "§cNull!" : $query["Version"]));
-				$sender->sendMessage("§e>§f Players:§a " . (($query["Players"] == null) ? "§cNull!" : $query["Players"]));
-				$sender->sendMessage("§e>§f MaxPlayers:§a " . (($query["MaxPlayers"] == null) ? "§cNull!" : $query["MaxPlayers"]));
-				$sender->sendMessage("§e>§f ServerId:§a " . (($query["ServerId"] == null) ? "§cNull!" : $query["ServerId"]));
-				$sender->sendMessage("§e>§f Map:§a " . (($query["Map"] == null) ? "§cNull!" : $query["Map"]));
-				$sender->sendMessage("§e>§f GameMode:§a " . (($query["GameMode"] == null) ? "§cNull!" : $query["GameMode"]));
-				$sender->sendMessage("§e>§f NintendoLimited:§a " . (($query["NintendoLimited"] == null) ? "§cNull!" : $query["NintendoLimited"]));
-				$sender->sendMessage("§e>§f IPv4Port:§a " . (($query["IPv4Port"] == null) ? "§cNull!" : $query["IPv4Port"]));
-				$sender->sendMessage("§e>§f IPv6Port:§a " . (($query["IPv6Port"] == null) ? "§cNull!" : $query["IPv6Port"]));
-				$sender->sendMessage("§e>§f Extra:§a " . (($query["Extra"] == null) ? "§cNull!" : $query["Extra"]));
+				$this->qrs($sender, $query);
 			} catch (PmQueryException $e) {
 				$sender->sendMessage("§e>§c The server is offline or has blocked queries!");
 				$sender->sendMessage("§e>§f Possible error:§c Your IP does not open the port or the device does not match!");
