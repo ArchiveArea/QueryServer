@@ -5,7 +5,7 @@ api: 4.0.0
 main: NhanAZ\QueryServer\Main
 src-namespace-prefix: NhanAZ\QueryServer
 website: https://github.com/NhanAZ
-description: Allow querying some other servers information
+description: Query information of other servers
 commands:
   query:
     aliases: [qr]
@@ -19,6 +19,7 @@ commands:
     description: Querying some other server's information (Backup method)
     usage: "/querys <domain/ip : port> to query certain server information"
     permission-message: §e>§c You do not have permission to use this command!
+
 permissions:
   query.cmd:
     default: op

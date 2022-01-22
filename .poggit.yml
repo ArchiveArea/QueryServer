@@ -5,6 +5,4 @@ branches:
 projects:
   QueryServer:
     path: ""
-    lint:
-      phpstan: false
 ...
