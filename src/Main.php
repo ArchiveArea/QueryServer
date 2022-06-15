@@ -12,8 +12,7 @@ use pocketmine\command\CommandSender;
 use NhanAZ\QueryServer\libs\libpmquery\PMQuery;
 use NhanAZ\QueryServer\libs\libpmquery\PmQueryException;
 
-class Main extends PluginBase implements Listener
-{
+class Main extends PluginBase implements Listener {
 
 	public array $players = [];
 
@@ -33,8 +32,7 @@ class Main extends PluginBase implements Listener
 		$sender->sendMessage("§e>§f Extra:§a " . (($query["Extra"] == null) ? "§cNull!" : $query["Extra"]));
 	}
 
-	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool
-	{
+	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool {
 		if ($cmd->getName() == "query") {
 			if (!isset($args[0])) {
 				$sender->sendMessage("§e>§c Usage: /query §b<domain/ip:port>§c to query certain server information");

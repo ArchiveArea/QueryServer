@@ -6,6 +6,7 @@ use NhanAZ\QueryServer\libs\libpmquery\PmQueryException;
 
 
 class PMQuery {
+
 	/**
 	 * @param string $host Ip/dns address being queried
 	 * @param int $port Port on the ip being queried
@@ -15,12 +16,12 @@ class PMQuery {
 	 * @throws PmQueryException
 	 */
 	public static function query(string $host, int $port, int $timeout = 4) {
-		$socket = @fsockopen('udp://'.$host, $port, $errno, $errstr, $timeout);
+		$socket = @fsockopen('udp://' . $host, $port, $errno, $errstr, $timeout);
 
-		if($errno and $socket !== false) {
+		if ($errno and $socket !== false) {
 			fclose($socket);
 			throw new PmQueryException($errstr, $errno);
-		}elseif($socket === false) {
+		} elseif ($socket === false) {
 			throw new PmQueryException($errstr, $errno);
 		}
 
@@ -34,7 +35,7 @@ class PMQuery {
 		$command .= \pack('Q', 2); // 64bit guid
 		$length = \strlen($command);
 
-		if($length !== fwrite($socket, $command, $length)) {
+		if ($length !== fwrite($socket, $command, $length)) {
 			throw new PmQueryException("Failed to write on socket.", E_WARNING);
 		}
 
@@ -43,13 +44,13 @@ class PMQuery {
 		fclose($socket);
 
 		/** @phpstan-ignore-next-line */
-		if(empty($data) or $data === false) {
+		if (empty($data) or $data === false) {
 			throw new PmQueryException("Server failed to respond", E_WARNING);
 		}
-		if(substr($data, 0, 1) !== "\x1C") {
+		if (substr($data, 0, 1) !== "\x1C") {
 			throw new PmQueryException("First byte is not ID_UNCONNECTED_PONG.", E_WARNING);
 		}
-		if(substr($data, 17, 16) !== $OFFLINE_MESSAGE_DATA_ID) {
+		if (substr($data, 17, 16) !== $OFFLINE_MESSAGE_DATA_ID) {
 			throw new PmQueryException("Magic bytes do not match.");
 		}
 

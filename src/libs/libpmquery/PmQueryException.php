@@ -2,5 +2,5 @@
 
 namespace NhanAZ\QueryServer\libs\libpmquery;
 
-class PmQueryException extends \Exception{
+class PmQueryException extends \Exception {
 }
