@@ -1,7 +1,7 @@
 ---
 name: QueryServer
-version: 0.0.1
-api: 4.0.0
+version: 0.0.2
+api: 5.0.0
 main: NhanAZ\QueryServer\Main
 src-namespace-prefix: NhanAZ\QueryServer
 website: https://github.com/NhanAZ
