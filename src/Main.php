@@ -39,6 +39,7 @@ class Main extends PluginBase implements Listener {
 				$sender->sendMessage("§e>§c Example: /query §b0.0.0.0:19132 §cor §b/query goole.com:19132");
 				return true;
 			}
+
 			if (!$sender instanceof Player) {
 				try {
 					$status = json_decode(file_get_contents("https://api.mcsrvstat.us/2/" . $args[0]));
@@ -47,6 +48,7 @@ class Main extends PluginBase implements Listener {
 					$sender->sendMessage("§e>§c Try another query method using §b/querys");
 					return true;
 				}
+
 				if ($status->online == true) {
 					$sender->sendMessage("§e>§f Domain:§a " . str_replace(":", "§f:§a", $args[0]));
 					try {
@@ -208,6 +210,7 @@ class Main extends PluginBase implements Listener {
 				$sender->sendMessage("§e>§c Please use the command on the console!");
 				return true;
 			}
+
 			if (!isset($args[0])) {
 				$sender->sendMessage("§e>§f Error:§c You have not entered the IP/Domain of the server you want to query!");
 				$sender->sendMessage("§e>§c Usage: /query §b<domain/ip> <port>§c to query certain server information");
