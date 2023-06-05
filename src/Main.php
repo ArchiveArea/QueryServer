@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace NhanAZ\QueryServer;
 
+use libpmquery\PMQuery;
+use libpmquery\PmQueryException;
 use pocketmine\player\Player;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use NhanAZ\QueryServer\libs\libpmquery\PMQuery;
-use NhanAZ\QueryServer\libs\libpmquery\PmQueryException;
 use pocketmine\console\ConsoleCommandSender;
 use pocketmine\Server;
 

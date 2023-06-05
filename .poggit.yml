@@ -5,4 +5,7 @@ branches:
 projects:
   QueryServer:
     path: ""
+    libs:
+      - src: jasonwynn10/libpmquery/libpmquery
+        version: 1.0.0
 ...
