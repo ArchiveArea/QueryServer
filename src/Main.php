@@ -94,10 +94,8 @@ class Main extends PluginBase implements Listener {
 				$sender->sendMessage("§e>§f Below is the fallback query method:");
 
 				try {
-					$IP_Or_Domain_And_Port = explode(":", $serverInfo);
-					$IP_Or_Domain = $IP_Or_Domain_And_Port[0];
-					$Port = $IP_Or_Domain_And_Port[1];
-					$query = PMQuery::query($IP_Or_Domain, (int)$Port);
+					$address = explode(":", $serverInfo);
+					$query = PMQuery::query(host: $address[0], port: (int) $address[1]);
 					Main::qrs($sender, $query);
 				} catch (PmQueryException $e) {
 					$sender->sendMessage("§e>§c The server is offline or has blocked queries!");
