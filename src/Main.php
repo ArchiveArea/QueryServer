@@ -135,14 +135,14 @@ class Main extends PluginBase implements Listener
             }
             if (!isset($args[0])) {
                 $sender->sendMessage("§e>§f Error:§c You have not entered the IP/Domain of the server you want to query!");
-                $sender->sendMessage("§e>§c Usage: /query §b<domain/ip> <port>§c to query certain server information");
-                $sender->sendMessage("§e>§c Example: /query §b0.0.0.0 19132 §cor §b/query goole.com 19132");
+                $sender->sendMessage("§e>§c Usage: /querys §b<domain/ip> <port>§c to query certain server information");
+                $sender->sendMessage("§e>§c Example: /querys §b0.0.0.0 19132 §cor §b/query goole.com 19132");
                 return true;
             }
             if (!isset($args[1])) {
                 $sender->sendMessage("§e>§f Error:§c You have not entered the Port of the server you want to query!");
-                $sender->sendMessage("§e>§c Usage: /query §b<domain/ip> <port>§c to query certain server information");
-                $sender->sendMessage("§e>§c Example: /query §b0.0.0.0 19132 §cor §b/query goole.com 19132");
+                $sender->sendMessage("§e>§c Usage: /querys §b<domain/ip> <port>§c to query certain server information");
+                $sender->sendMessage("§e>§c Example: /querys §b0.0.0.0 19132 §cor §b/query goole.com 19132");
                 return true;
             }
             try {
