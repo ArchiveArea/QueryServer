@@ -20,9 +20,9 @@ class QueryTask extends AsyncTask {
 		} catch (\pocketmine\utils\InternetException $e) {
 			var_dump("§e>§f Error:§c Your IP does not open the port or the device does not match!");
 			var_dump("§e>§c Try another query method using §b/querys");
+			$status = json_decode($status->getBody());
+			$this->setResult($status);
 		}
-		$status = json_decode($status->getBody());
-		$this->setResult($status);
 	}
 
 	public function onCompletion(): void {
